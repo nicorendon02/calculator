@@ -20,6 +20,6 @@ public class CalculatorService {
     {
 
         return new ResponseEntity<>(new ResponseCalculatorDto(calculator.calculate(value),
-                "Boy added correctly!", null),HttpStatus.OK);
+                "Calculate successful!", null),HttpStatus.OK);
     }
 }
