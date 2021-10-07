@@ -17,9 +17,7 @@ public class CalculatorService {
 
     public double calculateExpression(String exp) {
         Expression expression = new ExpressionBuilder(exp).build();
-        double result = expression.evaluate();
-
-        return result;
+        return expression.evaluate();
     }
     
     // ResponseEntity for methods
