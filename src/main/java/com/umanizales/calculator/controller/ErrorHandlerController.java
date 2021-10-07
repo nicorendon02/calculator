@@ -37,4 +37,14 @@ public class ErrorHandlerController {
         return new ResponseEntity<>(response, HttpStatus.CONFLICT);
     }
 
+    @ExceptionHandler(IllegalArgumentException.class)
+    protected ResponseEntity<?> handle(IllegalArgumentException ex) {
+
+        List<ErrorDTO> errors = new ArrayList<>();
+        errors.add(new ErrorDTO(HttpStatus.CONFLICT.value(), ex.getMessage()));
+        String message = "A logic failure has occurred!";
+        ResponseCalculatorDto response = new ResponseCalculatorDto(null, message, errors);
+        return new ResponseEntity<>(response, HttpStatus.CONFLICT);
+    }
+
 }

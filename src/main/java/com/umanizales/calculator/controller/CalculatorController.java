@@ -1,8 +1,5 @@
 package com.umanizales.calculator.controller;
 
-import com.umanizales.calculator.exception.CalculatorException;
-import com.umanizales.calculator.exception.DataNotFoundException;
-import com.umanizales.calculator.model.Calculator;
 import com.umanizales.calculator.service.CalculatorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -20,10 +17,10 @@ public class CalculatorController {
 
     @Autowired
     private CalculatorService calculatorService;
-
+    // exp = expression
     @PostMapping("/calculate")
     public @ResponseBody
-    ResponseEntity<?> calculate(@Valid @RequestBody String exp) throws CalculatorException {
+    ResponseEntity<?> calculate(@Valid @RequestBody String exp) {
         return calculatorService.calculate(exp);
     }
 }
